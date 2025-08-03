@@ -53,7 +53,7 @@ for (int i = 0; i < count; i++)
     const int size = 5;
     const double cellSize = 110;
     const int lineSize = 20;
-    const int charLen = 10;
+    const int charLen = 8;
     
     var xCenter = page.Width / 2;
     var xStart = xCenter - size * cellSize * 0.5;
@@ -82,11 +82,10 @@ for (int i = 0; i < count; i++)
         string[] split = str.Split(' ');
         foreach (var s in split)
         {
-            lines[^1] += " ";
             if (lines.Last().Length > 0 && s.Length + lines.Last().Length > charLen)
                 lines.Add(s);
             else
-                lines[^1] += s;
+                lines[^1] = lines[^1] + " " + s;
         }
 
         int x = c % size;
